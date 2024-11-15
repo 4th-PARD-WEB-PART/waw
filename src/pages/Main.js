@@ -1,10 +1,3 @@
-// import React from 'react'
-
-// export default function Main() {
-//   return (
-//     <></>
-//   );
-// }
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
@@ -90,8 +83,6 @@ function Main() {
     <Container>
       <Title>기머전시</Title>
       <SubTitle>내 애인이 받고 싶은 기념일 선물은?</SubTitle>
-      
-      
       
         <LogoImage src="your-image-url.jpg" alt="로고 이미지" />
       

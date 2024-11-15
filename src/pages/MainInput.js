@@ -1,5 +1,8 @@
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import styled from "styled-components";
+import { userState } from "../Atom";
+import { useRecoilState } from "recoil";
+import { useState } from "react";
 
 const Container = styled.div`
   display: flex;
@@ -61,21 +64,52 @@ const Button = styled.button`
 `;
 
 function MainInput() {
+  const [user, setUser] = useRecoilState(userState);
+
+  const [newName, setNewName] = useState(user.name);
+  const [newDateInfo, setNewDateInfo] = useState(user.dateinfo);
+
+  const handleNameChange = (event) => {
+    setNewName(event.target.value);
+  };
+
+  const handleDateInfoChange = (event) => {
+    setNewDateInfo(event.target.value);
+  };
+
+  const handleSave = () => {
+    setUser({
+      ...user,
+      name: newName,
+      dateinfo: newDateInfo,
+    });
+  };
+
   return (
-    <>
       <Container>
-        <Title>기념일 Info 설정</Title>
+        {/* 기념일 이름 입력 */}
         <InputContainer>
-          <Input id="anni-name" type="text" placeholder="기념일 이름을 입력하세요" />
+          <Input
+            type="text"
+            value={newDateInfo}
+            onChange={handleDateInfoChange}
+            placeholder="기념일 이름을 입력하세요"
+          />
         </InputContainer>
+
+        {/* 내 이름 입력 */}
         <InputContainer>
-          <Input id="my-name" type="text" placeholder="내 이름을 입력하세요" />
+          <Input
+            type="text"
+            value={newName}
+            onChange={handleNameChange}
+            placeholder="내 이름을 입력하세요"
+          />
         </InputContainer>
-        <Link to ="/quiz">
-          <Button>입력 완료</Button>
-        </Link>
+
+        {/* 저장 버튼 */}
+        <Link to="/quiz"><Button onClick={handleSave}>입력 완료</Button></Link>
       </Container>
-    </>
   );
 }
 

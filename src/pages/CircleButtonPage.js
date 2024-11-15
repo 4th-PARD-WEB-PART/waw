@@ -69,8 +69,6 @@ const CircleButtonPage = () => {
     );
 };
 
-export default CircleButtonPage;
-
 const Container = styled.div`
     width: 1280px;
     height: 832px;
@@ -240,3 +238,5 @@ const ButtonText2 = styled.span`
     min-width: 145px;
     height: 34px;
 `;
+
+export default CircleButtonPage;

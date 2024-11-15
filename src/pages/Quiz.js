@@ -1,8 +1,11 @@
 import styled from "styled-components";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
+import { useRecoilState } from "recoil";
+import { userState } from "../Atom";
+import { Navigate, useNavigate } from "react-router-dom";
 
-const name = "영영영"
+
 const questions = [
   {
       question: "이 기념일에 제일 받고 싶어 할 선물은?",
@@ -164,12 +167,20 @@ const TextInput = styled.input`
 
 
 export function Quiz() {
+  const [user, setUser] = useRecoilState(userState);
+
+  const [newUserAnswerList, setNewUserAnswerList] = useState(user.answer);
+
   const [currentStep, setCurrentStep] = useState(1);
   const [textInput, setTextInput] = useState('');
   const progressWidths = [97.5, 195, 292.5, 390, 487.5, 585, 682.5, 780];
 
+  const name = user.name;
   const handleOptionClick = (index) => {
-    UserAnswerList[currentStep - 1] = index.toString();
+    const updatedAnswerList = [...newUserAnswerList]; // 새로운 배열 생성 (불변성 유지)
+    updatedAnswerList[currentStep - 1] = index.toString();
+    setNewUserAnswerList(updatedAnswerList); // 상태 업데이트
+
     nextStep();
   };
 
@@ -177,30 +188,74 @@ export function Quiz() {
     setTextInput(event.target.value);
   };
 
+
   const handleTextInputSubmit = () => {
-    UserAnswerList[currentStep - 1] = textInput;
-    nextStep();
+    const updatedAnswerList = [...newUserAnswerList]; // 새로운 배열 생성 (불변성 유지)
+    updatedAnswerList[7] = textInput;
+    
+    setNewUserAnswerList(updatedAnswerList); // 상태 업데이트
+    setUser((prevUser) => ({
+      ...prevUser,
+      answer: newUserAnswerList,
+    }));
+    setTextInput(''); // 입력 필드 초기화
   };
+
+  const postData = async () => {
+    try {
+      const response = await axios.post("http://172.18.138.17:8080/user", user);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  let navigate = useNavigate();
+  useEffect(() => {
+    if (currentStep === questions.length) {
+      // 마지막 스텝에서만 업데이트
+      setUser((prevUser) => ({
+        ...prevUser,
+        answer: newUserAnswerList,
+      }));
+
+      console.log('업데이트된 사용자 상태:', user);
+      // 페이지 이동
+      postData();
+      navigate("/result");
+    }
+  }, [newUserAnswerList, currentStep]);
 
   const nextStep = () => {
     if (currentStep < questions.length) {
       setCurrentStep(currentStep + 1);
-      setTextInput(''); // 입력 필드 초기화
     } else {
-      const dataToSend = {
-        "name": "hajinnn",
-        "dateInfo": "300일",
-        "answer": UserAnswerList
-      };
-      const postData = async () => {
-        try {
-          const response = await axios.post("http://172.18.138.17:8080/user", dataToSend);
-        } catch (error) {
-          console.log(error);
-        }
-    }
+      // 모든 질문이 완료되었을 때
+      setCurrentStep(currentStep + 1); // currentStep을 questions.length + 1로 설정하여 useEffect에서 업데이트 유도
+      console.log(user);
     }
   };
+
+  // const nextStep = () => {
+  //   if (currentStep < questions.length) {
+  //     setCurrentStep(currentStep + 1);
+  //     // setTextInput(''); // 입력 필드 초기화
+  //   } else {
+
+  //     setUser((prevUser) => ({
+  //       ...prevUser,
+  //       userAnswerList: newUserAnswerList, // newUserAnswerList로 업데이트
+  //     }));
+  //     console.log('최종 사용자 답변 리스트:', newUserAnswerList);
+  //     console.log('업데이트된 사용자 상태:', user);
+
+  //     // const postData = async () => {
+  //     //   try {
+  //     //     const response = await axios.post("http://172.18.138.17:8080/user", dataToSend);
+  //     //   } catch (error) {
+  //     //     console.log(error);
+  //     //   }
+  //     // }
+  //   }
+  // };
   
   return (
     <Container>
