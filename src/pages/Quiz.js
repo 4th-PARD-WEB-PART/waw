@@ -6,13 +6,9 @@ import { userState } from "../Atom";
 import { Navigate, useNavigate } from "react-router-dom";
 
 
-<<<<<<< HEAD
-=======
 
 
 
-const name = "영영영"
->>>>>>> 38a52e115091c097dc57c510245bdd77f3e1b5ce
 const questions = [
   {
       question: "이 기념일에 제일 받고 싶어 할 선물은?",
@@ -203,14 +199,11 @@ const MainContainer = styled.div`
 
 
 export function Quiz() {
-<<<<<<< HEAD
   const [user, setUser] = useRecoilState(userState);
 
   const [newUserAnswerList, setNewUserAnswerList] = useState(user.answer);
 
-=======
   
->>>>>>> 38a52e115091c097dc57c510245bdd77f3e1b5ce
   const [currentStep, setCurrentStep] = useState(1);
   const [textInput, setTextInput] = useState('');
   const progressWidths = [97.5, 195, 292.5, 390, 487.5, 585, 682.5, 780];

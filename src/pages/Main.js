@@ -82,18 +82,7 @@ const Button = styled.button `
 `;
 
 function Main() {
-<<<<<<< HEAD
   return (
-    <Container>
-      <Title>기머전시</Title>
-      <SubTitle>내 애인이 받고 싶은 기념일 선물은?</SubTitle>
-      
-        <LogoImage src="your-image-url.jpg" alt="로고 이미지" />
-      
-=======
-    return (
->>>>>>> 38a52e115091c097dc57c510245bdd77f3e1b5ce
-
         <Container>
 
             <Title>기머전시</Title>

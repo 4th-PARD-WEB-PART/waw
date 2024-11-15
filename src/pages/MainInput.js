@@ -1,28 +1,8 @@
 import { Link, Navigate } from "react-router-dom";
 import styled from "styled-components";
-<<<<<<< HEAD
 import { userState } from "../Atom";
 import { useRecoilState } from "recoil";
 import { useState } from "react";
-=======
-import { createGlobalStyle } from 'styled-components';
-
-
-const GlobalStyle = createGlobalStyle`
-  @font-face {
-    font-family: 'Cafe24 Ssurround';
-    src: url('/public/Cafe24Ssurround-v2.0.otf') format('opentype');
-    src: url()('/public/NanumSquareRoundB.ttf') format('opentype');
-    src: url()('/public/NanumSquareRoundEB.ttf') format('opentype');
-    src: url()('/public/') format('opentype');
-
-  }
-
-  body {
-    font-family: 'Cafe24 Ssurround', 'NanumSquareRound', sans-serif;
-  }
-`;
->>>>>>> 38a52e115091c097dc57c510245bdd77f3e1b5ce
 
 const Container = styled.div`
   display: flex;
@@ -112,38 +92,25 @@ function MainInput() {
   };
 
   return (
-<<<<<<< HEAD
-=======
-    <>
-    <GlobalStyle />
->>>>>>> 38a52e115091c097dc57c510245bdd77f3e1b5ce
       <Container>
         {/* 기념일 이름 입력 */}
         <InputContainer>
-<<<<<<< HEAD
           <Input
             type="text"
             value={newDateInfo}
             onChange={handleDateInfoChange}
             placeholder="기념일 이름을 입력하세요"
           />
-=======
-          <Input id="anni-name" type="text" placeholder="기념일 이름 입력" />
->>>>>>> 38a52e115091c097dc57c510245bdd77f3e1b5ce
         </InputContainer>
 
         {/* 내 이름 입력 */}
         <InputContainer>
-<<<<<<< HEAD
           <Input
             type="text"
             value={newName}
             onChange={handleNameChange}
             placeholder="내 이름을 입력하세요"
           />
-=======
-          <Input id="my-name" type="text" placeholder="내 이름 입력" />
->>>>>>> 38a52e115091c097dc57c510245bdd77f3e1b5ce
         </InputContainer>
 
         {/* 저장 버튼 */}
