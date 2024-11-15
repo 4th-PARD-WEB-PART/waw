@@ -97,7 +97,7 @@ function Main() {
       
 
       {/* 링크 태그를 이미지 밖으로 빼고 버튼 위치 설정 */}
-      <Link to="/test3">
+      <Link to="/input">
         <Button>문제 만들기</Button>
       </Link>
     </Container>

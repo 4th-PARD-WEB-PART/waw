@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { useState } from "react";
+import axios from "axios";
 
 const name = "영영영"
 const questions = [
@@ -186,7 +187,18 @@ export function Quiz() {
       setCurrentStep(currentStep + 1);
       setTextInput(''); // 입력 필드 초기화
     } else {
-      console.log(UserAnswerList);
+      const dataToSend = {
+        "name": "hajinnn",
+        "dateInfo": "300일",
+        "answer": UserAnswerList
+      };
+      const postData = async () => {
+        try {
+          const response = await axios.post("http://172.18.138.17:8080/user", dataToSend);
+        } catch (error) {
+          console.log(error);
+        }
+    }
     }
   };
   

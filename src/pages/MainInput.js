@@ -71,10 +71,10 @@ function MainInput() {
         <InputContainer>
           <Input id="my-name" type="text" placeholder="내 이름을 입력하세요" />
         </InputContainer>
-        <Button>입력 완료</Button>
+        <Link to ="/quiz">
+          <Button>입력 완료</Button>
+        </Link>
       </Container>
-
-      <Link to="/test"></Link>
     </>
   );
 }
