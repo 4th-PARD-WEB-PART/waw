@@ -11,3 +11,18 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+@font-face {
+  font-family: 'Cafe24_Ssurround';
+  src: url('/public/Fonts/Cafe24Ssurround-v2.0.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'NanumSquareRound';
+  src: url('/public/Fonts/NanumSquareRoundB.ttf') format('opentype');
+}
+
+.a {
+  text-decoration: none;
+}
