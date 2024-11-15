@@ -94,11 +94,6 @@
 - **효율적 협업**: PM, 디자이너, 개발자 간 원활한 협업을 통해 완성도 높은 결과물 도출.  
 - **실제 서비스화 가능성**: 다양한 사용자 시나리오를 고려해 실용성을 극대화.  
 
----
-
-## **📬 문의 및 피드백**  
-- **GitHub**: [Your Repository Link]  
-- **Email**: support@giftquiz.com  
 
 **"기념일 고민? 이제 Anniversary Gift Quiz Project와 함께하세요!"** ❤️  
 
