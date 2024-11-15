@@ -23,7 +23,7 @@ const CircleButtonPage = () => {
     ];
     
     return (
-        <>
+        <Container0>
         <Container>
             <Container1>
                 <Box1>
@@ -65,9 +65,17 @@ const CircleButtonPage = () => {
             </Container3>
         </Container>
             
-        </>
+        </Container0>
     );
 };
+
+const Container0 = styled.div`
+    height: 110vh;
+    background-color: #FCEDEF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`;
 
 const Container = styled.div`
     width: 1280px;

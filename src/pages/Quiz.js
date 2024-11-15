@@ -232,6 +232,9 @@ export function Quiz() {
       answer: newUserAnswerList,
     }));
     setTextInput(''); // 입력 필드 초기화
+
+    postData();
+    navigate("/result");
   };
 
   const postData = async () => {
@@ -243,7 +246,7 @@ export function Quiz() {
   }
   let navigate = useNavigate();
   useEffect(() => {
-    if (currentStep === questions.length) {
+    if (currentStep-1 === questions.length) {
       // 마지막 스텝에서만 업데이트
       setUser((prevUser) => ({
         ...prevUser,
@@ -252,8 +255,7 @@ export function Quiz() {
 
       console.log('업데이트된 사용자 상태:', user);
       // 페이지 이동
-      postData();
-      navigate("/result");
+
     }
   }, [newUserAnswerList, currentStep]);
 
