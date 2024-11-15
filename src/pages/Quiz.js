@@ -6,6 +6,13 @@ import { userState } from "../Atom";
 import { Navigate, useNavigate } from "react-router-dom";
 
 
+<<<<<<< HEAD
+=======
+
+
+
+const name = "영영영"
+>>>>>>> 38a52e115091c097dc57c510245bdd77f3e1b5ce
 const questions = [
   {
       question: "이 기념일에 제일 받고 싶어 할 선물은?",
@@ -90,15 +97,20 @@ const Container = styled.div`
     text-align: center;
     width: 780px;
     margin: 0 auto;
+    background-color: #FCEDEF;
+    
+    
 `;
 
 const ProgressText = styled.div`
     color: #000;
     font-size: 32px;
     font-weight: 700;
-    font-family: 'NanumSquareRound', sans-serif;
+    font-family: 'Cafe24 Ssurround', sans-serif;
     line-height: normal;
     margin-bottom: 20px;
+    font-family: 'NanumSquareRound';
+    font-weight: bold;
 `;
 
 const ProgressBar = styled.div`
@@ -107,7 +119,7 @@ const ProgressBar = styled.div`
     height: 7px;
     background: #ACACAC;
     border-radius: 4px;
-    margin: 20px 0;
+    margin-bottom: 120px;
 `;
 
 const Line1 = styled.div`
@@ -116,6 +128,7 @@ const Line1 = styled.div`
     height: 7px;
     background: #ACACAC;
     border-radius: 4px;
+    
 `;
 
 const Line2 = styled.div`
@@ -129,48 +142,75 @@ const Line2 = styled.div`
 const QuestionText = styled.div`
     margin: 20px 0;
     font-size: 24px;
-    font-weight: 600;
+    
     color: #333;
+    margin-bottom: 120px;
+    font-family: 'NanumSquareRound';
 `;
 
 const Options = styled.div`
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center; /* 수평 가운데 정렬 */
     gap: 15px;
     margin: 20px 0;
+    border-radius: 15px;
+    
 `;
 
 const OptionButton = styled.button`
     padding: 15px;
     font-size: 18px;
-    background-color: #F5F5F5;
-    color: #000;
+    background-color: #FFFFFF;
+    color: black;
     border: 1px solid #CCC;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
+    margin-bottom: 15px;
+    width: 512px;
+    height: 77px;
+    border-radius: 15px;
+    font-family: 'NanumSquareRound';
+    font-weight: 100;
 
     &:hover {
-        background-color: #E0E0E0;
+        background-color: #DE4E66;
+        color: white;
     }
 `;
 
 const TextInput = styled.input`
     padding: 10px;
-    width: 100%;
+    width: 512px;
+    height: 77px;
     font-size: 18px;
     border-radius: 5px;
     border: 1px solid #CCC;
+    margin-bottom: 100px;
+    font-family: 'NanumSquareRound';
+`;
+
+const MainContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #FCEDEF;
 `;
 
 
-
-
 export function Quiz() {
+<<<<<<< HEAD
   const [user, setUser] = useRecoilState(userState);
 
   const [newUserAnswerList, setNewUserAnswerList] = useState(user.answer);
 
+=======
+  
+>>>>>>> 38a52e115091c097dc57c510245bdd77f3e1b5ce
   const [currentStep, setCurrentStep] = useState(1);
   const [textInput, setTextInput] = useState('');
   const progressWidths = [97.5, 195, 292.5, 390, 487.5, 585, 682.5, 780];
@@ -258,6 +298,10 @@ export function Quiz() {
   // };
   
   return (
+    <MainContainer>
+
+    
+    
     <Container>
       {/* progress bar */}
       <ProgressText>{currentStep}/{questions.length}</ProgressText>
@@ -276,9 +320,10 @@ export function Quiz() {
             type="text"
             value={textInput}
             onChange={handleTextInputChange}
-            placeholder="답변을 입력해주세요."
+            placeholder="ex) 나는 정성이 담긴 손편지가 좋아~"
+            textAlign="center"
           />
-          <OptionButton onClick={handleTextInputSubmit}>확인</OptionButton>
+          <OptionButton onClick={handleTextInputSubmit}>입력완료</OptionButton>
         </div>
       ) : (
         <Options>
@@ -291,5 +336,6 @@ export function Quiz() {
       )}
 
     </Container>
+    </MainContainer>
   );
 }
