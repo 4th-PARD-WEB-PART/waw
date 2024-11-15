@@ -83,10 +83,6 @@ const questions = [
 ];
 
 
-const OppAnswerList = ['', '', '', '', '', '', '', ''];
-const UserAnswerList = ['', '', '', '', '', '', '', ''];
-
-
 const Container = styled.div`
     text-align: center;
     width: 780px;
@@ -196,7 +192,7 @@ const MainContainer = styled.div`
 `;
 
 
-export function Quiz() {
+export function Solve() {
   const [user, setUser] = useRecoilState(userState);
 
   const [newUserAnswerList, setNewUserAnswerList] = useState(user.answer);
@@ -229,10 +225,9 @@ export function Quiz() {
       ...prevUser,
       answer: newUserAnswerList,
     }));
-    setTextInput(''); // 입력 필드 초기화
 
     postData();
-    navigate("/share");
+    navigate("/result");
   };
 
   const postData = async () => {
@@ -253,6 +248,7 @@ export function Quiz() {
 
       console.log('업데이트된 사용자 상태:', user);
       // 페이지 이동
+
 
     }
   }, [newUserAnswerList, currentStep]);
@@ -311,12 +307,12 @@ export function Quiz() {
         <div>
           <TextInput
             type="text"
-            value={textInput}
+            value="나는 정성이 담긴 손편지가 좋아~"
             onChange={handleTextInputChange}
-            placeholder="ex) 나는 정성이 담긴 손편지가 좋아~"
+            
             textAlign="center"
           />
-          <OptionButton onClick={handleTextInputSubmit}>입력완료</OptionButton>
+          <OptionButton onClick={handleTextInputSubmit}>결과 보기</OptionButton>
         </div>
       ) : (
         <Options>

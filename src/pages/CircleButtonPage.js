@@ -27,10 +27,10 @@ const CircleButtonPage = () => {
         <Container>
             <Container1>
                 <Box1>
-                    <Text1>내가 고른 답변</Text1>
+                    <Text1>지석영이 고른 답변</Text1>
                 </Box1>
                 <Box2>
-                    <Text2>USER 1이 고른 답변</Text2>
+                    <Text2>내가 고른 답변</Text2>
                 </Box2>
             </Container1>
             <Container2>
